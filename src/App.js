@@ -1,25 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
+import NavigationBar from './Components/Layout/NavigationBar';
+// import Notifications from './Components/HomePage/Notifications';
+import Home from './Components/HomePage/Home';
+import LogIn from './Components/Auth/LogIn';
+import LogOut from './Components/Auth/LogOut';
+import Register from './Components/Auth/Register';
+// import Feeds from './Components/HomePage/Feeds';
+// import AllPosts from './Components/HomePage/AllPosts';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <NavigationBar/>
+      <h1>Hello World!</h1>
+      <Switch>
+        <Route path="/" exact component={Home}/>        
+        <Route path="/notregistered" exact component={Register}/>
+        <Route path="/login">
+          <LogIn/>
+          <LogOut/>
+        </Route>
+      
+      
+      </Switch>
+
+    </Router>
+     /* <div className="App">
+       <NavigationBar/>
+       <h1>Hello World!</h1>
+      <Feeds/>
+       <AllPosts/>
+       <Notifications />
+
+       <LogIn/>
+       <LogOut/>
+       <Register/>
+     </div> */
   );
 }
 
