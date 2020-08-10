@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from './Logo';
+import { Link } from "react-router-dom";
 
 const NavigationBar = () => {
     return (
@@ -8,10 +9,9 @@ const NavigationBar = () => {
     <div className="nav-wrapper">
       <Logo/>
       <ul className="left hide-on-med-and-down">
-        <li><a href="/">Home</a></li>
-        <li><a href="/notregistered">Register</a></li>
-        <li><a href="/login">Log in</a></li>
-        {/* <li className="active"><a href="/login">Log in</a></li> */}
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/notregistered">Register</Link></li>
+        <li><Link to="/login">Log in</Link></li>
       </ul>
     </div>
   </nav>

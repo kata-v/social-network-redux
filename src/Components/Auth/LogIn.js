@@ -1,12 +1,28 @@
-import React from 'react';
+import React from "react";
 
 const LogIn = () => {
-    return (
+  return (
+    <div>
+      <p>Please Log In to continue.</p>
+      <form className="newPost">
         <div>
-            <p>Please Log In to continue.</p>
-            <a className="waves-effect waves-light btn-large">Log In</a>
+          <label for="username">Username</label>
+          <input type="text" name="username" id="username" />
         </div>
-    );
-}
+        <div>
+          <label for="password">Password</label>
+          <textarea type="password" name="password" id="password" />
+        </div>
+      </form>
+      <button
+        className="btn waves-effect waves-light"
+        type="button"
+        value="LogIn"
+      >
+        Log In
+      </button>
+    </div>
+  );
+};
 
 export default LogIn;

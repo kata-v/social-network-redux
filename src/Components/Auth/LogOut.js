@@ -3,7 +3,14 @@ import React from 'react';
 const LogOut = () => {
     return (
         <div>
-            <a className="waves-effect waves-light btn-large">Log Out</a>
+            <button
+        className="btn waves-effect waves-light"
+        type="button"
+        name="action"
+      >
+        Log Out
+      </button>
+            
         </div>
     );
 }
