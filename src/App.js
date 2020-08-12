@@ -1,43 +1,53 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavigationBar from './Components/Layout/NavigationBar';
-// import Notifications from './Components/HomePage/Notifications';
-import Home from './Components/HomePage/Home';
+import Feeds from './Components/HomePage/Feeds';
 import LogIn from './Components/Auth/LogIn';
 import LogOut from './Components/Auth/LogOut';
 import Register from './Components/Auth/Register';
-import NonRegisteredUserLinks from './Components/Layout/NonRegisteredUserLinks';
-// import Feeds from './Components/HomePage/Feeds';
-// import AllPosts from './Components/HomePage/AllPosts';
+import PostDetails from './Components/Posts/PostDetails';
+import CreateNewPost from './Components/Posts/CreateNewPost';
+import Firebase from 'firebase';
+import { FIREBASE_CONFIG as firebaseConfig } from './config/firebaseConfig';
 
-function App() {
+
+// Initialize Firebase
+Firebase.initializeApp(firebaseConfig);
+Firebase.analytics();
+
+const db = Firebase.firestore();
+db.collection('posts').get()
+  .then(resp => {
+    console.log('resp is: ');
+    console.log(resp);
+    console.log('resp.docs is: ' + resp.docs);
+    console.log(resp.docs);
+    console.log('resp.docs[0].data()');
+    console.log(resp.docs[0].data());
+  })
+  .catch(err => {
+    console.log(err);
+  });
+
+
+const App = () => {
   return (
     <Router>
-      <NavigationBar/>
-      <h1>Hello World!</h1>
-      <Switch>
-        <Route exact path="/" exact component={Home}/>        
-        <Route path="/notregistered" exact component={NonRegisteredUserLinks}/>
-        <Route path="/login" exact component={LogIn}/>
-        <Route path="/logout" exact component={LogOut}/>
-         
-      
-      
-      </Switch>
-
+      <div className="App">
+        <div className="container">
+          <NavigationBar></NavigationBar>
+          <Switch>
+            <Route exact path="/" component={Feeds}></Route>
+            <Route exact path="/create" component={CreateNewPost}></Route>
+            <Route exact path="/register" component={Register}></Route>
+            <Route exact path="/login" component={LogIn}></Route>
+            <Route exact path="/logout" component={LogOut}></Route>
+            <Route exact path="/post/:id" component={PostDetails}></Route>
+          </Switch>       
+        </div>
+      </div>
     </Router>
-     /* <div className="App">
-       <NavigationBar/>
-       <h1>Hello World!</h1>
-      <Feeds/>
-       <AllPosts/>
-       <Notifications />
-
-       <LogIn/>
-       <LogOut/>
-       <Register/>
-     </div> */
   );
 }
 

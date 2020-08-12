@@ -1,11 +1,10 @@
-import React from 'react';
+import React from 'react'
+import AllPosts from '../Posts/AllPosts'
 
 const Feeds = () => {
     return (
-        <div>
-            <p>Here are all your feeds, kisses.</p>
-        </div>
-    );
-}
+    <AllPosts></AllPosts>
+);
+    }
 
 export default Feeds;

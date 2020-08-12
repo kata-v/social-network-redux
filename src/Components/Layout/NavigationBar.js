@@ -1,23 +1,19 @@
-import React from 'react';
+import React from 'react'
 import Logo from './Logo';
-import { NavLink } from "react-router-dom";
+import NonRegisteredUsers from './NonRegisteredUsers';
+import RegisteredUsers from './RegisteredUsers';
 
-const NavigationBar = () => {
-    return (
-        
-            <nav>
-    <div className="nav-wrapper">
-      <Logo/>
-      <ul className="left hide-on-med-and-down">
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/notregistered">Register</NavLink></li>
-        <li><NavLink to="/login">Log in</NavLink></li>
-        <li><NavLink to="/logout">Log out</NavLink></li>
-      </ul>
-    </div>
-  </nav>
-        
-    );
+const NavigationBar = () => { 
+  return(
+    <nav className="nav-wrapper">
+        <div className="container">
+            <Logo></Logo>
+            <ul className="right hide-on-med-and-down">
+                <NonRegisteredUsers></NonRegisteredUsers>
+                <RegisteredUsers></RegisteredUsers>
+            </ul>
+        </div>    
+    </nav>
+);   
 }
-
 export default NavigationBar;
