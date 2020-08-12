@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from './Logo';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const NavigationBar = () => {
     return (
@@ -9,9 +9,10 @@ const NavigationBar = () => {
     <div className="nav-wrapper">
       <Logo/>
       <ul className="left hide-on-med-and-down">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/notregistered">Register</Link></li>
-        <li><Link to="/login">Log in</Link></li>
+        <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/notregistered">Register</NavLink></li>
+        <li><NavLink to="/login">Log in</NavLink></li>
+        <li><NavLink to="/logout">Log out</NavLink></li>
       </ul>
     </div>
   </nav>

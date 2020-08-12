@@ -7,6 +7,7 @@ import Home from './Components/HomePage/Home';
 import LogIn from './Components/Auth/LogIn';
 import LogOut from './Components/Auth/LogOut';
 import Register from './Components/Auth/Register';
+import NonRegisteredUserLinks from './Components/Layout/NonRegisteredUserLinks';
 // import Feeds from './Components/HomePage/Feeds';
 // import AllPosts from './Components/HomePage/AllPosts';
 
@@ -16,12 +17,11 @@ function App() {
       <NavigationBar/>
       <h1>Hello World!</h1>
       <Switch>
-        <Route path="/" exact component={Home}/>        
-        <Route path="/notregistered" exact component={Register}/>
-        <Route path="/login">
-          <LogIn/>
-          <LogOut/>
-        </Route>
+        <Route exact path="/" exact component={Home}/>        
+        <Route path="/notregistered" exact component={NonRegisteredUserLinks}/>
+        <Route path="/login" exact component={LogIn}/>
+        <Route path="/logout" exact component={LogOut}/>
+         
       
       
       </Switch>

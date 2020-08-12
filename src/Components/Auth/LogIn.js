@@ -11,7 +11,7 @@ const LogIn = () => {
         </div>
         <div>
           <label for="password">Password</label>
-          <textarea type="password" name="password" id="password" />
+          <input type="password" name="password" id="password" />
         </div>
       </form>
       <button
